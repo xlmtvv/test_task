@@ -7,7 +7,7 @@ class RecursiveSerializer(serializers.Serializer):
         serializer = self.parent.parent.__class__(instance, context=self.context)
         return serializer.data
 
-class EmployeesListSerializer(serializers.ModelSerializer):
+class EmployeesSerializer(serializers.ModelSerializer):
 
     employye = RecursiveSerializer(many=True)
 
@@ -19,9 +19,3 @@ class EmployeesListSerializer(serializers.ModelSerializer):
 
 
 
-class EmployeesDetailSerializer(serializers.ModelSerializer):
-    parent = serializers.SlugRelatedField(slug_field="full_name", read_only=True)
-
-    class Meta:
-        model = Employee
-        fields = ('full_name', 'position', 'employment_date', 'salary', 'parent')
