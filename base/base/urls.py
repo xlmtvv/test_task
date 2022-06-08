@@ -16,8 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from rest_framework.routers import SimpleRouter
+from catalog.views import EmployeesListView
+# router = SimpleRouter()
+# router.register(r'emplpoyees', EmployeesListView)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('catalog.urls')),
+    path('api/', include('catalog.urls')),
     path('api-auth/', include('rest_framework.urls'))
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns =[
+        path('__debug__/', include('debug_toolbar.urls'))
+    ] + urlpatterns
