@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'mptt',
     'django_seed',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -92,6 +93,8 @@ DATABASES = {
 }
 
 
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -109,6 +112,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+
+
 
 
 # Internationalization
@@ -148,10 +155,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 10,
+
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # ),
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     'rest_framework.parsers.JSONParser',
+    # )
 }
 
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+SOCIAL_AUTH_JSONFIELD_ENABLED = True

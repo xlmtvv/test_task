@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework.test import APITestCase
 
 from catalog.models import Employee
-from catalog.serializers import RecursiveSerializer, EmployeesSerializer
+from catalog.serializers import EmployeesSerializer #RecursiveSerializer
 
 
 class EmployeesApiTestCase(APITestCase):

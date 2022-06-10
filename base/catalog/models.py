@@ -7,7 +7,7 @@ class Employee(MPTTModel):
     employment_date = models.DateField(verbose_name='Дата приема', blank=False)
     salary = models.IntegerField(verbose_name='Зарплата', blank=False)
 
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='employye')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='employee')
 
     class MPTTMeta:
         order_insertion_by = ['full_name']
