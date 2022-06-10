@@ -12,7 +12,9 @@ router.register(r'api/tree/employees', EmployeeTreeViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/', include('catalog.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    path('drf-auth/', include('rest_framework.urls')),
+    path('api/auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
 
 urlpatterns += router.urls

@@ -5,7 +5,6 @@ from rest_framework_recursive.fields import RecursiveField
 
 class EmployeesSerializer(serializers.ModelSerializer):
 
-
     class Meta:
         model = Employee
         fields = ('id', 'parent','full_name', 'position', 'employment_date', 'salary', 'employee')
